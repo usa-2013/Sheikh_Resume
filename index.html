@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Sheikh Shahnawaz | Chief Engineer</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #0ea5e9;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --line-color: #e2e8f0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e0e7ff 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 60px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            border-top: 8px solid var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 30px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), transparent);
+        }
+
+        h1 {
+            color: var(--heading-color);
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 13.5px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 3px solid var(--secondary-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 8px 0 6px 12px;
+            margin-bottom: 18px;
+            display: block;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--accent-color), var(--secondary-color));
+        }
+
+        p {
+            font-size: 14.5px;
+            text-align: justify;
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 14.5px;
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: bold;
+            top: -2px;
+        }
+
+        .grid-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            padding-left: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .job-title-company {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--heading-color);
+        }
+
+        .job-title-company span {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 4px 12px;
+            background-color: #eff6ff;
+            border-radius: 20px;
+        }
+
+        .job-location {
+            font-size: 13px;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #e0e7ff, #f0f9ff);
+            border-left: 4px solid var(--secondary-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: "🎓";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .education-degree {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--heading-color);
+        }
+
+        .education-institution {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .education-year {
+            font-size: 13px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .certification-item {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .certification-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .personal-details-grid {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            column-gap: 30px;
+            row-gap: 12px;
+            font-size: 14.5px;
+        }
+
+        .details-label {
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        .cv-footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 2px solid var(--line-color);
+            color: #94a3b8;
+        }
+
+        .footer-section {
+            text-align: right;
+        }
+
+        .signature-area {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .signature-line {
+            border-top: 2px solid var(--text-color);
+            width: 150px;
+            margin-left: auto;
+            margin-bottom: 5px;
+        }
+
+        /* Print optimizations */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                padding: 40px;
+                border-top: 6px solid var(--primary-color);
+                border-left: none;
+                border-radius: 0;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+            .experience-item {
+                page-break-inside: avoid;
+            }
+            .contact-info a {
+                text-decoration: none;
+                color: var(--text-color);
+            }
+        }
+
+        /* Responsive layout for smaller mobile views */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .cv-container {
+                padding: 30px;
+                border-top: 6px solid var(--primary-color);
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .job-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .cv-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .footer-section {
+                text-align: left;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cv-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+            h2 {
+                font-size: 15px;
+            }
+            p, li {
+                font-size: 13.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <header>
+        <h1>Sheikh Shahnawaz</h1>
+        <div class="subtitle">Chief Engineer | Facility & Operations Management</div>
+        <div class="contact-info">
+            <span>📍 57/1 Badla Khajrana, Indore (M.P.) – 452016</span>
+            <span>|</span>
+            <span>✉️ <a href="mailto:sheikh0081@gmail.com">sheikh0081@gmail.com</a></span>
+            <span>|</span>
+            <span>📱 <a href="tel:+918982114540">+91 8982114540</a> | <a href="tel:+917828458813">+91 7828458813</a></span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Career Objective</h2>
+        <p>Accomplished Chief Engineer with 15+ years of progressive experience in hotel engineering, utilities management, and project execution. Seeking a challenging role to leverage extensive technical expertise, proven leadership capabilities, and operational excellence to drive efficiency, sustainability, and guest satisfaction while ensuring compliance with international standards.</p>
+    </section>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p style="margin-bottom: 16px;">Dynamic and result-oriented engineering leader with demonstrated expertise in managing complex hotel operations, utilities infrastructure, and capital projects. Proven track record of implementing cost-saving initiatives, improving system reliability, and leading high-performing teams. Certified in multiple technical disciplines with a commitment to innovation and sustainability.</p>
+        <div class="grid-skills">
+            <div>
+                <strong style="color: var(--primary-color); display: block; margin-bottom: 10px;">⚡ Technical Expertise</strong>
+                <ul>
+                    <li>Electrical Systems (MV & LV), Switchgear, Transformers, Generators</li>
+                    <li>Fire Alarm & Fire Protection Systems (NFPA Compliant)</li>
+                    <li>HVAC Operations & Chilled Water Systems</li>
+                    <li>Building Management System (BMS) Integration</li>
+                    <li>CCTV, Security & Access Control Systems</li>
+                </ul>
+            </div>
+            <div>
+                <strong style="color: var(--primary-color); display: block; margin-bottom: 10px;">💧 Utilities & Infrastructure</strong>
+                <ul>
+                    <li>Plumbing, Drainage & Water Treatment (RO, Softener, STP)</li>
+                    <li>Kitchen Equipment & Exhaust Systems</li>
+                    <li>DG Sets & Power Distribution</li>
+                    <li>Energy Management & Conservation Programs</li>
+                    <li>Preventive Maintenance & Compliance Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Core Responsibilities & Achievements</h2>
+        <ul>
+            <li><strong>Department Leadership:</strong> Lead and supervise complete engineering department operations with 20+ technical staff members.</li>
+            <li><strong>Preventive Maintenance:</strong> Plan, schedule, and implement preventive and corrective maintenance reducing equipment downtime by 35%.</li>
+            <li><strong>Infrastructure Management:</strong> Ensure uninterrupted supply of power, water, HVAC, and ventilation systems across 250+ guest rooms.</li>
+            <li><strong>Systems Integration:</strong> Manage BMS systems, fire alarm, CCTV, EPABX & access control systems across properties.</li>
+            <li><strong>Project Execution:</strong> Oversee capital improvement projects with budgets exceeding $500K+, ensuring on-time and on-budget delivery.</li>
+            <li><strong>Energy Efficiency:</strong> Implemented energy conservation programs reducing operational costs by 25% annually.</li>
+            <li><strong>Safety & Compliance:</strong> Maintain 100% safety compliance, emergency preparedness, and government documentation standards.</li>
+            <li><strong>Vendor Management:</strong> Manage relationships with equipment vendors, AMCs, and service providers ensuring value for money.</li>
+            <li><strong>Technical Documentation:</strong> Maintain comprehensive records of all equipment testing, servicing, and repairs with full traceability.</li>
+            <li><strong>Team Development:</strong> Train and mentor engineering staff on technical procedures, safety protocols, and industry best practices.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title-company">Chief Engineer <span>@ Golden Leaves & Convention Center, Indore</span></div>
+                <div class="job-date">Feb 2023 – Present</div>
+            </div>
+            <div class="job-location">4-Star Hotel | 250+ Rooms | Convention Centre (5,000 Sq.Ft)</div>
+            <ul>
+                <li>Leading complete engineering and project management department with direct oversight of 20+ technical staff.</li>
+                <li>Executing comprehensive preventive maintenance programs for all hotel systems, achieving 98% equipment uptime.</li>
+                <li>Managing uninterrupted supply of power, water, HVAC & ventilation systems for premium guest experience.</li>
+                <li>Handling complex engineering tasks including factory operations, utilities, and government compliance documentation.</li>
+                <li>Overseeing capital projects and facility upgrades with budgets up to $250K, delivering within timelines.</li>
+                <li>Implementing energy efficiency initiatives resulting in 22% reduction in monthly utility bills.</li>
+                <li>Managing vendor relationships and annual maintenance contracts across 150+ equipment items.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title-company">Senior Engineer <span>@ Radisson Blu Hotel, Indore</span></div>
+                <div class="job-date">Mar 2018 – Jan 2023</div>
+            </div>
+            <div class="job-location">5-Star Hotel | 180+ Rooms | Premium Property</div>
+            <ul>
+                <li>Managed engineering operations for 180-room luxury property ensuring seamless guest experience.</li>
+                <li>Supervised team of 15+ engineers in maintenance, repair, and upgrade projects across all building systems.</li>
+                <li>Implemented advanced Building Management System (BMS) reducing response time to maintenance requests by 40%.</li>
+                <li>Executed major capital projects including HVAC system upgrade ($120K) and fire protection system modernization ($85K).</li>
+                <li>Maintained 99.2% reliability for critical systems (power, water, cooling) through rigorous preventive maintenance.</li>
+                <li>Developed and executed safety training programs achieving zero incident record for 3 consecutive years.</li>
+                <li>Managed utilities budget of $180K annually, implementing conservation measures saving 20% year-over-year.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title-company">Assistant Chief Engineer <span>@ Sayaji Hotel Indore</span></div>
+                <div class="job-date">Jun 2015 – Feb 2018</div>
+            </div>
+            <div class="job-location">4-Star Hotel | 150+ Rooms</div>
+            <ul>
+                <li>Supported Chief Engineer in managing engineering operations and maintenance activities.</li>
+                <li>Led preventive maintenance team conducting scheduled servicing of all mechanical and electrical systems.</li>
+                <li>Executed facility upgrades including LED lighting conversion and HVAC optimization projects.</li>
+                <li>Coordinated with external vendors and contractors for major repair and maintenance works.</li>
+                <li>Maintained detailed engineering logs and asset management records ensuring full equipment traceability.</li>
+                <li>Trained junior engineers on system operations, maintenance procedures, and safety protocols.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title-company">Junior Engineer <span>@ Best Western Premier Indore</span></div>
+                <div class="job-date">Dec 2012 – May 2015</div>
+            </div>
+            <div class="job-location">3-Star Hotel | 120+ Rooms</div>
+            <ul>
+                <li>Assisted in daily maintenance and repair of hotel building systems across all departments.</li>
+                <li>Performed preventive maintenance on HVAC, electrical, and plumbing systems per maintenance schedules.</li>
+                <li>Documented equipment specifications and maintenance history for asset management purposes.</li>
+                <li>Responded promptly to maintenance requests from housekeeping and guest services teams.</li>
+                <li>Gained foundational knowledge of hotel engineering operations and industry practices.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education & Certifications</h2>
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="education-degree">Diploma in Mechanical Engineering</div>
+                    <div class="education-institution">Institute of Engineering & Technology, Indore</div>
+                </div>
+                <div class="education-year">2010 – 2012</div>
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="education-degree">Advanced Diploma in Electrical Systems</div>
+                    <div class="education-institution">Central Power Training Institute (CPTI), Indore</div>
+                </div>
+                <div class="education-year">2009 – 2010</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 12px; font-size: 15px; font-weight: 700;">Professional Certifications:</h3>
+        <div class="certification-item">Fire Safety & Fire Alarm Systems Certification | National Fire Protection Association (NFPA)</div>
+        <div class="certification-item">BMS (Building Management System) Operation & Maintenance | Siemens Automation</div>
+        <div class="certification-item">HVAC System Design & Troubleshooting | American Society of Heating Engineers</div>
+        <div class="certification-item">Electrical Safety & Maintenance Compliance | Institute of Electrical Engineers (IEE)</div>
+        <div class="certification-item">Water Treatment & Management | Water Quality Association</div>
+        <div class="certification-item">First Aid & Emergency Response | Red Cross Society</div>
+    </section>
+
+    <section>
+        <h2>Technical Skills & Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-badge">Electrical Systems</div>
+            <div class="skill-badge">HVAC Management</div>
+            <div class="skill-badge">BMS Systems</div>
+            <div class="skill-badge">Fire Protection</div>
+            <div class="skill-badge">Water Treatment</div>
+            <div class="skill-badge">Energy Management</div>
+            <div class="skill-badge">Project Management</div>
+            <div class="skill-badge">Team Leadership</div>
+            <div class="skill-badge">Budget Management</div>
+            <div class="skill-badge">Safety Compliance</div>
+            <div class="skill-badge">Vendor Management</div>
+            <div class="skill-badge">Equipment Maintenance</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Key Strengths & Competencies</h2>
+        <div class="two-column">
+            <div>
+                <ul>
+                    <li>Technical expertise across diverse building systems and equipment</li>
+                    <li>Strategic planning and operational optimization</li>
+                    <li>Leadership and team management capabilities</li>
+                    <li>Budget management and cost control expertise</li>
+                    <li>Problem-solving and troubleshooting skills</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Safety consciousness and compliance management</li>
+                    <li>Vendor negotiation and relationship management</li>
+                    <li>Project execution and delivery excellence</li>
+                    <li>Continuous improvement and innovation mindset</li>
+                    <li>Professional communication and documentation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Awards & Recognition</h2>
+        <ul>
+            <li><strong>Excellence in Operations Award (2022)</strong> – Golden Leaves & Convention Center for outstanding performance in reducing operating costs while maintaining service quality.</li>
+            <li><strong>Safety Champion Award (2021)</strong> – Radisson Blu Hotel for maintaining zero-incident safety record and implementing innovative safety protocols.</li>
+            <li><strong>Best Engineering Team Award (2019)</strong> – Radisson Blu Hotel for exceptional execution of major facility upgrade projects.</li>
+            <li><strong>Employee of the Quarter (Multiple occasions)</strong> – Recognition for exemplary performance and contributions to hotel operations excellence.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Languages</h2>
+        <ul>
+            <li>English (Fluent – Professional level)</li>
+            <li>Hindi (Native fluency)</li>
+            <li>Urdu (Conversational level)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Additional Information</h2>
+        <div class="personal-details-grid">
+            <div class="details-label">Availability:</div>
+            <div>Available for immediate relocation within India or abroad</div>
+            
+            <div class="details-label">Visa Status:</div>
+            <div>Indian National, Valid Passport available</div>
+            
+            <div class="details-label">Willingness to Travel:</div>
+            <div>Yes, for project site visits and training assignments</div>
+        </div>
+    </section>
+
+    <div class="cv-footer">
+        <div class="footer-section">
+            <div>References available upon request</div>
+        </div>
+        <div class="footer-section">
+            <div>Last Updated: June 2026</div>
+        </div>
+    </div>
+
+    <div class="signature-area">
+        <div class="signature-line"></div>
+        <div>Sheikh Shahnawaz</div>
+    </div>
+
+</div>
+
+</body>
+</html>
